@@ -1,20 +1,14 @@
 #!/usr/bin/env python
 import cgi, cgitb
 cgitb.enable()
-print("Content-Type: text/plain;charset=utf-8\n")
-print('Imported and configured CGI')
 import random
-print('Imported random module')
 import time
-print('Imported time module')
-start = time.clock()
-print('Initialized clock, time: %i' %start)
+
+print("Content-Type: text/plain;charset=utf-8\n")
+
 swift_lyrics = open('swift_lyrics.txt', 'r')
-print('Opened lyrics source file')
 swift_songs = swift_lyrics.read().split('%new_song%')
-print('Assembled song library')
 for song_index in range(len(swift_songs)):
-	# print('Beginning organisation of song %i' %(song_index+1))
 	song = swift_songs[song_index].split('\n\n')
 	swift_songs[song_index] = song
 	for verse_index in range(len(song)):
@@ -23,17 +17,11 @@ for song_index in range(len(swift_songs)):
 		for line_index in range(len(verse)):
 			line = verse[line_index].split()
 			swift_songs[song_index][verse_index][line_index] = line
-	# print('Finished organisation of song %i' %(song_index+1))
-print 'All', len(swift_songs), 'songs loaded successfully'
-end = time.clock()
-print('Setup complete; time taken: ' + str(end-start))
 
 def first_word():
 	song = random.choice(swift_songs)
 	verse = random.choice(song)
 	line = random.choice(verse)
-	# print(verse)
-	# print(' '.join(line) + ': is the starting line')
 	return line[0]
 
 def word_count(a):
@@ -44,7 +32,6 @@ def word_count(a):
 			for line in verse:
 				word_counter += line.count(a)
 	end = time.clock()
-	# print('Finding %i instances of "%s" took ' %(word_counter, a) + str(end-start) + ' seconds')
 	return word_counter
 
 def double_word_count(word1, word2):
@@ -59,7 +46,6 @@ def double_word_count(word1, word2):
 							if line[word_index+1] == word2:
 								word_counter += 1
 	end = time.clock()
-	# print('Finding %i instances of "%s" took ' %(word_counter, a) + str(end-start) + ' seconds')
 	return word_counter
 
 def find_double_word(word1, word2, index):
@@ -89,7 +75,6 @@ def find_word(word, index):
 					if line[word_index] == word:
 						if counter >= index:
 							if word_index+1 != len(line):
-								# print(line[word_index+1] + ' is the next word')
 								return line[word_index+1]
 							else:
 								return False
@@ -105,22 +90,17 @@ def find_next_line(word, index):
 					if line[word_index] == word:
 						if counter >= index:
 							if line_index+1 != len(verse):
-								# print(verse[line_index+1][0] + ' is the start of the next line')
 								return verse[line_index+1][0]
 							else:
-								# print('No next line found')
 								return first_word()
 						counter += 1
 
 def make_line(first, start_song):
 	start = time.clock()
-	# print('Beginning creation of a line')
 	line = []
-	# print('"' + first + '" is the root')
 	if start_song:
 		line.append(first)
 	if not start_song:
-		# print('not start_song')
 		index = random.randrange(0, word_count(first))
 		next_word = find_next_line(first, index)
 		line.append(next_word)
@@ -135,13 +115,10 @@ def make_line(first, start_song):
 		if next_word:
 			line.append(next_word)
 			x += 1
-			# print('Word #%i has been created, it is %s' %(x+1, next_word))
 		else:
 			end = time.clock()
-			# print('Line creation successful, found end word; process took ' + str(end-start) + ' seconds')
 			return line
 	end = time.clock()
-	# print('Line creation successful, max line length reached; process took ' + str(end-start) + ' seconds')
 	return line
 
 def make_verse():
@@ -192,7 +169,6 @@ def make_title(song):
 
 
 def write_song(song):
-	print('\n\n\n\n\n\n')
 	title = ' '.join(make_title(song))
 	print(title)
 	print('-'*len(title))
@@ -203,8 +179,4 @@ def write_song(song):
 		print('\n')
 	return 0
 
-start = time.clock()
 write_song(make_song())
-end = time.clock()
-print('\n\n\n\n')
-print('Program terminated in ' + str(end-start) + ' seconds')

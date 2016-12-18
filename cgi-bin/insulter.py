@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 import cgi, cgitb
+import random
+
 cgitb.enable()
 
 print("Content-Type: text/plain;charset=utf-8\n")
 
-form = cgi.FieldStorage() 
+form = cgi.FieldStorage()
 
 try:
     chirps = int(form.getvalue('i'))
@@ -14,28 +16,16 @@ if chirps == None:
     chirps = 1
     
 chirps = min(chirps, 2000)
-
-
-import random
-from time import clock as get_time
-import datetime
-
-get_time()
 words = open('allwords.txt')
 wordlist = words.read().splitlines()
-
 nouns = open('nouns.txt', 'r')
-
 nounlist = nouns.read().splitlines()
-
 adj = open('adjectives.txt', 'r')
-
 adjlist = adj.read().splitlines()
-# print 'Time: ' + str(datetime.datetime.now().time())
-random.seed(datetime.datetime.now().time())
 
 def nounpick():
     return random.choice(nounlist)
+
 def chirper():
     for x in range(chirps):
         random.shuffle(wordlist)
@@ -51,9 +41,5 @@ def chirper():
         print(exclam_gram + adj_gram + noun+ '!')
     return 0
                 
-                
-
-
 chirper()
-print('--------- Process terminated in ' + str(get_time()) + ' seconds ---------')
 exit()

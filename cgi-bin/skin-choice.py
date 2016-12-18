@@ -6,7 +6,6 @@ import urllib2
 from re import findall
 import random
 from decimal import Decimal
-from time import time
 
 form = cgi.FieldStorage() 
 
@@ -17,9 +16,6 @@ except (TypeError, ValueError):
 if i == None:
     i = 1
 
-
-start = time()
-
 def weighted_choice(n, p):
 	r = random.uniform(0,sum(p))
 	cur = 0
@@ -28,7 +24,6 @@ def weighted_choice(n, p):
 			return n[i]
 		cur += p[i]
 		
-
 ideas = open('skinchoice-allwords.txt','r').read().splitlines()
 user_agent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)'
 headers = { 'User-Agent' : user_agent }
@@ -76,22 +71,12 @@ weapons = ["Glock-18",
 		   "Karambit",
 		   "M9 Bayonet",
 		   "Shadow Daggers"]
-print("Setup done in", time()-start)
-
-start = time()
 for weapon in weapons:
 	request = urllib2.Request("".join((link,weapon.replace(' ', '+'))))
 	request.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)')
 	html = urllib2.urlopen(request).read().decode('utf-8')
-	# print(html)
-	# print("Weapon loaded from website in", time()-start)
-	# start = time()
 	skins = set([name[name.find('=') + 2:len(name) - 1] for name in findall('data-gaevent="' + weapon + '.*?"', html) if not "(Vanilla)" in name])
-	# print("Regex completed in", time()-start)
 	length = len(skins)
-	# print(weapon, length)
-	# print('\t' + '\n\t'.join(skins))
-	# if weapon_count:
 	if False:
 		if length >= weapon_count[len(weapon_count)-1][1]:
 			weapon_count.insert(len(weapon_count), (weapon, length))
@@ -103,14 +88,9 @@ for weapon in weapons:
 	else:
 		weapon_count.append((weapon, length))
 
-# start = time()
-print(weapon_count)
 p = [1/x[1]**1.5 for x in weapon_count]
 n = [x[0] for x in weapon_count]
 user_input = ''
 for x in range(min(i, 2000)):
 	print('\n' + weighted_choice(n, p))
 	print(random.choice(ideas))
-# print('\n' +'\n'.join((', '.join((str(x) for x in item)) for item in weapon_count)))
-print("Web loading and random generation completed in", time()-start)
-

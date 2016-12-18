@@ -1,5 +1,7 @@
 #! /bin/python
 import cgi, cgitb
+import random
+import codecs
 cgitb.enable()
 print "Content-type: text/plain;charset=utf-8\n"
 form = cgi.FieldStorage() 
@@ -15,15 +17,11 @@ if contexts == -1:
 	contexts = 1000
     
 contexts = min(contexts, 1000)
-import random
-import time
-import codecs
-start = time.clock()
 
 def weighted_random(c, p):
 	average = sum(p)/len(p)
-        c = [c[i] for i in range(len(c)) if p[i] >= 0.5*average]
-        p = [p[i] for i in range(len(p)) if p[i] >= 0.5*average]
+	c = [c[i] for i in range(len(c)) if p[i] >= 0.5*average]
+	p = [p[i] for i in range(len(p)) if p[i] >= 0.5*average]
 	target = random.uniform(0, sum(p))
 	total = 0
 	choice = random.randrange(len(c))
@@ -224,17 +222,12 @@ class Speech():
 				index = self.add(index[0], split=True)
 			else:
 				index = self.add(index[0])
-				# print(self.__str__())
 
 	def __str__(self):
 		string = unicode(' '.join(self.tokens[:-1]).replace(' .', '.').replace(' ,', ',').replace(' ;', ';').replace(u'\u2014,', u'\u2014').replace(u'\u2014', '--').replace(' " ', ' ').lower() + '!')
 		return string
 				
 speech = Speech("corpus.txt", limit=contexts)
-
 speech.write()
 
-
-print 'Imported and configured modules\n'
 print str(speech) 
-print '\n-------- Execution took ' + str(time.clock() - start) + 's --------'
