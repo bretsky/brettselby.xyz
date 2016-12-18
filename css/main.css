@@ -76,6 +76,12 @@ textarea {
     src: url("Aleo-Regular.otf") format("opentype");
 }
 
+@font-face {
+    font-family: aleo;
+    font-style: italic;
+    src: url("Aleo-Italic.otf") format("opentype");
+}
+
 body {
     background: #fff;
 }
@@ -139,19 +145,45 @@ a:hover, a:active {
     font-size: 14px;
 }
 
+.quote {
+    font-family: aleo;
+    font-style: italic;
+    font-size: 18px;
+    margin: auto;
+    width: 61.8%;
+    color: #48514E;
+    padding-bottom: 0px;
+}
+
+.quoteauthor {
+    position: relative;
+    left: 78px;
+    font-style: normal;
+    padding-top: 0px;
+    color: #48514E;
+}
+
 ul.a {
     list-style-type: none;
+    list-style-position: outside;
     font-family: polaris;
     font-size: 18px;
+    padding-left: 0px;
 }
 
-ul.a li {
-    padding-top: 12px;
+ul.a li.a {
+    padding-top: 0px;
+    padding-left: 0px;
 }
 
-ul.a li:before {
+ul.a li.a:before {
     content: ">";
     margin: 0 0.5em;
+}
+
+ul.b {
+    list-style-type: circle;
+    list-style-position: inside;
 }
 
 /* ==========================================================================
