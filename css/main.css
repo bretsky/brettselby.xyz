@@ -148,6 +148,14 @@ a:hover, a:active {
 .quote {
     font-family: aleo;
     font-style: italic;
+    margin: auto;
+    color: #48514E;
+    padding-bottom: 0px;
+}
+
+.homepagequote {
+    font-family: aleo;
+    font-style: italic;
     font-size: 18px;
     margin: auto;
     width: 33%;
