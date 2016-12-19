@@ -136,6 +136,7 @@ a:hover, a:active {
     width: 95%;
     color: #48514E;
     font-family: aleo;
+    font-size: 14px;
 }
 
 .quote {
@@ -151,7 +152,7 @@ a:hover, a:active {
     font-style: italic;
     font-size: 18px;
     margin: auto;
-    width: 33%;
+    width: 75%;
     color: #48514E;
     padding-bottom: 0px;
 }
