@@ -165,17 +165,25 @@ a:hover, a:active {
 
 ul.a {
     list-style-type: none;
+    list-style-position: outside;
     font-family: polaris;
     font-size: 18px;
+    padding-left: 0px;
 }
 
-ul.a li {
-    padding-top: 12px;
+ul.a li.a {
+    padding-top: 0px;
+    padding-left: 0px;
 }
 
-ul.a li:before {
+ul.a li.a:before {
     content: ">";
     margin: 0 0.5em;
+}
+
+ul.b {
+    list-style-type: circle;
+    list-style-position: inside;
 }
 
 /* ==========================================================================
