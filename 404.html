@@ -4,17 +4,10 @@
     <meta charset="utf-8">
     <title>Page Not Found</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
     <style>
-
-        * {
-            line-height: 1.2;
-            margin: 0;
-        }
-
         html {
-            color: #888;
             display: table;
-            font-family: sans-serif;
             height: 100%;
             text-align: center;
             width: 100%;
@@ -23,38 +16,16 @@
         body {
             display: table-cell;
             vertical-align: middle;
-            margin: 2em auto;
         }
-
-        h1 {
-            color: #555;
-            font-size: 2em;
-            font-weight: 400;
-        }
-
-        p {
-            margin: 0 auto;
-            width: 280px;
-        }
-
-        @media only screen and (max-width: 280px) {
-
-            body, p {
-                width: 95%;
-            }
-
-            h1 {
-                font-size: 1.5em;
-                margin: 0 0 0.3em;
-            }
-
-        }
-
     </style>
 </head>
-<body>
-    <h1>Page Not Found</h1>
-    <p>Sorry, but the page you were trying to view does not exist.</p>
+<body style="line-height: 1.2">
+    <div id="page" style="display: inline-block">
+        <h1 class="quote" style="width: 80%;">"It’s okay to get lost every once in a while, sometimes getting lost is how we find ourselves."</h1>
+        <br>
+        <p style="color: #79807E; width: 80%; font-family: aleo;; margin: auto; padding-bottom: 32px">Looks like you're lost! You might want to head back to <a href="index.html">safety</a>.</p>
+    </div>
+    <script type="text/javascript" src="js/resizeText.js"></script>
 </body>
 </html>
 <!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->
