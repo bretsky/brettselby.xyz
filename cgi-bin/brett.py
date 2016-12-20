@@ -14,8 +14,6 @@ user_input = form.getvalue('s')
 
 etree = ET.parse('dayna-sms.xml')
 root = etree.getroot()
-# for sms in root.findall('./*[@type="1"]'):
-# 	print(sms.attrib['body'])
 
 def input_reverse_search(s):
 	if s:
@@ -39,7 +37,6 @@ def input_reverse_search(s):
 					if user_input[index] == body[index]:
 						run_score += 2
 			word_score += len(set([word for word in user_input if strip_non_alphanum(word) in [strip_non_alphanum(w) for w in body]]))
-			# print(' '.join(body), word_score, run_score)
 			scores.append((word_score + 4*run_score**2)**2)
 		else:
 			scores.append(0.25)
@@ -48,7 +45,6 @@ def input_reverse_search(s):
 	return (indexes, scores)
 
 def strip_non_alphanum(s):
-	# print(''.join([c for c in s if c.lower() in 'abcdefghijklmnopqrstuvwxyz']))
 	return ''.join([c for c in s if c.lower() in 'abcdefghijklmnopqrstuvwxyz'])
 
 def find_reply(index):
@@ -61,15 +57,8 @@ def find_reply(index):
 def get_reply(s):
 	indexes, scores = input_reverse_search(s)
 	best_indexes = [indexes[index] for index in [index for index, val in enumerate(scores) if val == max(scores)]]
-	# print('Best matches:\n' + '\n'.join([root[index].attrib['body'] for index in best_indexes]) + '\n')
-	# print(indexes, scores)
-	# [print(root[index].attrib['body'] + '\t ' + str(score)) for index, score in zip(indexes, scores)]
 	choice = random.choice(best_indexes)
-	# print('Sent text:', root[choice].attrib['body'])
 	reply = find_reply(choice)
-	# print([root[reply].attrib['body'] for reply in replies])
-	# print('Reply:', root[reply].attrib['body'])
 	return root[reply].attrib['body']
-
 
 print get_reply(user_input)
