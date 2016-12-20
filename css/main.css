@@ -193,6 +193,41 @@ ul.b {
     list-style-position: inside;
 }
 
+.footer {
+    position:absolute;
+    bottom: 0;
+    left: 12.5%;
+    text-align: center;
+    width: 75%;
+    margin: auto;
+    display: table;
+    height: 32px;
+    background-color: #48514E;
+}
+
+.footerelement {
+    color: #E8B681;
+    display: table-cell;
+    vertical-align: middle;
+    margin: auto;
+}
+
+.footerelement a:link {
+    color: #02BFE0;
+}
+
+.footerelement a:visited {
+    color: #02BFE0;
+}
+
+.footerelement a:hover {
+    color: #E8B681;
+}
+
+.footerelement a:active {
+    color: #E8B681;
+}
+
 /* ==========================================================================
    Media Queries
    ========================================================================== */
