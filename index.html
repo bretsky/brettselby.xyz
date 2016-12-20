@@ -10,13 +10,7 @@
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.brettselby.xyz/index.html">
-        <script type="text/javascript">
-            <!--
-            if (screen.width <= 800) {
-                window.location = "http://m.brettselby.xyz/index.html";
-            }
-            //-->
-        </script>
+        <script src="js/mobileRedirect.js"></script>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
@@ -25,10 +19,10 @@
         </div>
         <div class="menubar">
             <div class="menu">
-                <li class="currentitem">&lt<a href="index.html">home</a>&gt</li>
-                <li class="menuitem">&lt<a href="about.html">about</a>&gt</li>
-                <li class="menuitem">&lt<a href="projects.html">projects</a>&gt</li>
-                <li class="menuitem">&lt<a href="contact.html">contact</a>&gt</li>
+                <li class="currentitem">&lt<a href="index.html?desktop=1">home</a>&gt</li>
+                <li class="menuitem">&lt<a href="about.html?desktop=1">about</a>&gt</li>
+                <li class="menuitem">&lt<a href="projects.html?desktop=1">projects</a>&gt</li>
+                <li class="menuitem">&lt<a href="contact.html?desktop=1">contact</a>&gt</li>
             </div>
         </div>
         <div class="titlebar"></div>    

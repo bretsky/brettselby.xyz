@@ -1,0 +1,8 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^brettselby\.xyz$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.brettselby\.xyz$
+RewriteRule ^timer$ "http\:\/\/www\.brettselby\.xyz\/timer\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^brettselby\.xyz$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.brettselby\.xyz$
+RewriteRule ^trump$ "http\:\/\/www\.brettselby\.xyz\/cgi\-bin\/trumpinator\.py" [R=301,L]
