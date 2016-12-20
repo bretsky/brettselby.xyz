@@ -7,12 +7,12 @@ html {
 }
 
 ::-moz-selection {
-    background: #b3d4fc;
+    background: #F2E5DE;
     text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
+    background: #F2E5DE;
     text-shadow: none;
 }
 
