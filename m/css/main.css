@@ -230,6 +230,20 @@ ul.b {
     color: #E8B681;
 }
 
+.left {
+    display: inline-block;
+    width: 100px;
+    margin: 0 0 0 -100px;
+    text-align: right
+}
+
+.right {
+    display: inline-block;
+    width: 100px;
+    margin: 0 -100px 0 0;
+    text-align: left
+}
+
 /* ==========================================================================
    Media Queries
    ========================================================================== */
