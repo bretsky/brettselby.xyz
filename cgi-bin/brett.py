@@ -18,7 +18,10 @@ root = etree.getroot()
 # 	print(sms.attrib['body'])
 
 def input_reverse_search(s):
-	user_input = s.lower().split()
+	if s:
+		user_input = s.lower().split()
+	else:
+		user_input = ""
 	sms_list = root.getchildren()
 	indexes = []
 	scores = []
