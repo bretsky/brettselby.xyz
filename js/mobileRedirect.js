@@ -33,7 +33,7 @@ function redirect() {
 	forceDesktop = getURLParameter('desktop')
 	if(forceDesktop != "1") {
 		if(window.mobileCheck()) {
-			window.location.href = window.location.href.replace("http://", "http://m.")
+			window.location.href = "http://m.brettselby.xyz" + window.location.pathname
 		}
 	}
 }
