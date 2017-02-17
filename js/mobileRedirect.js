@@ -36,9 +36,6 @@ function redirect() {
 			window.location.href = window.location.href.replace("http://", "http://m.")
 		}
 	}
-	else {
-		window.location.href = removeParam("desktop", window.location.href)
-	}
 }
 
 window.onload = redirect()

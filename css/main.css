@@ -95,9 +95,59 @@ body {
     padding: 4px;
 }
 
+.sms-container {
+    width: 100%;
+    position: fixed;
+    top:75vh;
+    height: 25vh;
+    background-color: #4B7084;
+}
+
+.chat {
+    width: 100%;
+    height: 75vh;
+}
+
+.send-container {
+    display: table;
+    margin: 0 auto;
+}
+
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  color: #888;
+}
+
+.sms-send {
+    background-color: transparent;
+    border: none;
+    display: table-cell;
+}
+
+.sms-input {
+    font-family: aleo;
+    font-size: 12px;
+    width: auto;
+    height: 2em;
+    display: table-cell;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin: 1em 0em;
+    overflow: auto;
+    border: 3px transparent; 
+    background-color: #D1F3F9;
+}
+
 .titlebar {
     margin: auto;
     width: 75%;
+    border-bottom: 3px solid #02bfe0;
+    padding: 0px;
+}
+
+.fulltitlebar {
+    margin: auto;
+    width: 100%;
     border-bottom: 3px solid #02bfe0;
     padding: 0px;
 }

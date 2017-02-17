@@ -1,12 +1,24 @@
+#!/usr/bin/env python
+import cgi, cgitb
 from xml.etree import ElementTree as ET
 import random
+
+cgitb.enable()
+
+print "Content-Type: text/plain;charset=utf-8\n"
+
+form = cgi.FieldStorage()
+
+user_input = form.getvalue('s')
+
 etree = ET.parse('dayna-sms.xml')
 root = etree.getroot()
-# for sms in root.findall('./*[@type="1"]'):
-# 	print(sms.attrib['body'])
 
 def input_reverse_search(s):
-	user_input = s.lower().split()
+	if s:
+		user_input = s.lower().split()
+	else:
+		user_input = ""
 	sms_list = root.getchildren()
 	indexes = []
 	scores = []
@@ -24,7 +36,6 @@ def input_reverse_search(s):
 					if user_input[index] == body[index]:
 						run_score += 2
 			word_score += len(set([word for word in user_input if strip_non_alphanum(word) in [strip_non_alphanum(w) for w in body]]))
-			# print(' '.join(body), word_score, run_score)
 			scores.append((word_score + 4*run_score**2)**2)
 		else:
 			scores.append(0.25)
@@ -33,17 +44,14 @@ def input_reverse_search(s):
 	return (indexes, scores)
 
 def strip_non_alphanum(s):
-	# print(''.join([c for c in s if c.lower() in 'abcdefghijklmnopqrstuvwxyz']))
 	return ''.join([c for c in s if c.lower() in 'abcdefghijklmnopqrstuvwxyz'])
 
 def weighted_choice(choices):
 	total = sum(w for c, w in choices)
-
 	r = random.uniform(0, total)
 	upto = 0
 	for c, w in choices:
 		if upto + w >= r:
-			# print(w, '/', total, '=', str(w/total*100) + '% chance')
 			return c
 		upto += w
 	assert False
@@ -57,15 +65,8 @@ def find_reply(index):
 
 def get_first_word(s):
 	indexes, scores = input_reverse_search(s)
-	# print(indexes, scores)
-	# [print(root[index].attrib['body'] + '\t ' + str(score)) for index, score in zip(indexes, scores)]
 	choice = weighted_choice(list(zip(indexes, scores)))
-	# print('Sent text:', root[choice].attrib['body'])
-	# print('Score:', scores[indexes.index(choice)])
 	reply = find_reply(choice)
-	# print([root[reply].attrib['body'] for reply in replies])
-	# print('Reply:', root[reply].attrib['body'])
-	# print('Chosen word:', root[reply].attrib['body'].split()[0], '\n')
 	return root[reply].attrib['body'].split()[0]
 
 def get_next_word(sentence):
@@ -88,19 +89,11 @@ def get_next_word(sentence):
 						run_score += 2
 			word_score += len(set([word for word in sentence_list if word in body]))
 			scores.append((word_score + 4*run_score**2)**2)
-			# print(' '.join(body) + '\t', word_score, run_score, (word_score + 4*run_score**2)**2)
 	next_index = weighted_choice(list(zip(indexes, scores)))
-	# print(next_index)
-	# print('Next message:', root[next_index[0]].attrib['body'])
-	# print("Score:", scores[indexes.index(next_index)])
 	if next_index[1]+1 >= len(root[next_index[0]].attrib['body'].split()):
 		return [' '.join([sentence]), False]
 	else:
 		next_word = root[next_index[0]].attrib['body'].split()[next_index[1]+1]
-		# print('Next word:', next_word)
-		# print(indexes)
-		# print(scores)
-	# print('Current sentence:', ' '.join((sentence, next_word)), '\n')
 	return [' '.join((sentence, next_word)), True]
 
 def create_message(s):
@@ -113,12 +106,4 @@ def create_message(s):
 		not_at_end = next_word[1]
 	return message
 	
-print('Dayna:')
-user_input = input()
-while user_input != "*ABORT":
-	print('Brett:')
-	print(create_message(user_input))
-	print('Dayna:')
-	user_input = input()
-
-
+print create_message(user_input)
