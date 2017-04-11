@@ -21,17 +21,13 @@
     margin: 0 auto;
 }
 
-[contenteditable=true]:empty:before {
-  content: attr(placeholder);
-  color: #888;
-}
-
-.sms-send {
+.sms-button {
     background-color: transparent;
     border: none;
     display: table-cell;
-    padding: 0px;
+    padding: 4px 7px 4px 7px;
     margin-left: 6px;
+    margin-right: 6px;
 }
 
 .sms-input {
@@ -48,6 +44,10 @@
     background-color: #D1F3F9;
 }
 
+.sms-input:disabled {
+    background-color: #CDD8DD;
+}
+
 .bubble {
     -moz-border-radius: 0.5em;
     border-radius: 0.5em;
@@ -57,6 +57,7 @@
     width: 50vw;
     margin: 0.5em;
     word-wrap: break-word;
+    min-height: 19px;
 }
 
 .my-bubble {
@@ -69,6 +70,7 @@
     margin: 0.5em;
     float: right;
     word-wrap: break-word;
+    min-height: 19px;
 }
 
 .message-container {
