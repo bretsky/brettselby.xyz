@@ -15,65 +15,56 @@ class Conversation():
 		src = src.splitlines()
 		self.intro = src[0].replace("bretsky: ", "")
 		self.convo = {}
-		for i in range(1, len(self.convo)//2):
-			self.convo[src[2*i - 1].replace("cleverbot: ", "").split()] = src[2*i].replace("bretsky: ", "").split()
+		self.original = {}
+		for i in range(1, len(src)//2):
+			clever_msg = tuple(strip_non_alphanum(src[2*i - 1].replace("cleverbot: ", "").lower()).split())
+			brett_msg = tuple(strip_non_alphanum(src[2*i].replace("bretsky: ", "").lower()).split())
+			self.convo[clever_msg] = brett_msg
+			self.original[brett_msg] = src[2*i].replace("bretsky: ", "")
+			self.original[clever_msg] = src[2*i - 1].replace("cleverbot: ", "")
 
-	def get_scores(s):
-		scores = {}
-		for key in list(self.convo.keys()):
+	def get_scores(self, s):
+		scores = []
+		for msg in list(self.convo.keys()):
+			reply = self.original[self.convo[msg]]
 			word_score = 0
 			run_score = 0
-
+			for i in range(min(len(s), len(msg))):
+				index = -1 - i
+				if s[index] == msg[index]:
+					run_score += 2
+				else:
+					break
+			word_score += len(set([word for word in s if word in msg]))
+			score = (word_score + 4*run_score**2)**2 + 1
+			scores.append((score, self.original[msg], reply))
+		return scores
 
 def convert_src(src):
-	src = src.lower().split("<conversation>\n")[1:]
+	src = src.split("<conversation>\n")[1:]
 	convos = [Conversation(convo) for convo in src]
 	return convos
 
-def input_reverse_search(s, convos):
-	user_input = s.lower().split()
-	indexes = []
+def input_lookup(s, convos):
+	user_input = strip_non_alphanum(s.lower()).split()
 	scores = []
 	for convo in convos:
-		for msg in convo:
-			word_score = 0
-			run_score = 0
-			match_count = 0
-			body = sms.attrib['body'].lower().split()
-			indexes.append(sms_list.index(sms))
-			if any(strip_non_alphanum(word) in [strip_non_alphanum(w) for w in body] for word in user_input):			
-				if user_input[-1] == body[-1]:
-					run_score += 2
-					for i in range(min(len(user_input)-1, len(body)-1)):
-						index = -2 - i
-						if user_input[index] == body[index]:
-							run_score += 2
-				word_score += len(set([word for word in user_input if strip_non_alphanum(word) in [strip_non_alphanum(w) for w in body]]))
-				scores.append((word_score + 4*run_score**2)**2)
-			else:
-				scores.append(0.25)
-	if not indexes:
-		return None
-	return (indexes, scores)
+		scores.extend(convo.get_scores(user_input))
+	return scores
 
 def strip_non_alphanum(s):
-	return ''.join([c for c in s if c.lower() in 'abcdefghijklmnopqrstuvwxyz'])
+	return ''.join([c for c in s if c.lower() in 'abcdefghijklmnopqrstuvwxyz '])
 
-def find_reply(index):
-	while index < len(root.getchildren())-1:
-		index += 1
-		if root[index].attrib['type'] == '2':
-			return index
-	return None
-
-def get_reply(s):
-	indexes, scores = input_reverse_search(s)
-	best_indexes = [indexes[index] for index in [index for index, val in enumerate(scores) if val == max(scores)]]
+def get_reply(s, convos):
+	scores = input_lookup(s, convos)
+	max_score = max(scores, key=lambda x: x[0])[0]
+	# print max_score
+	best_indexes = [msg[2] for msg in scores if msg[0] >= 0.9*max_score]
+	# print len(best_indexes)
 	choice = random.choice(best_indexes)
-	reply = find_reply(choice)
-	return root[reply].attrib['body']
+	return choice
 
 
 convos = open("brett-src.txt", "r").read()
 convos = convert_src(convos)
-print len(convos)
+print get_reply(user_input, convos)
