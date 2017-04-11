@@ -13,7 +13,7 @@ function getReply() {
 	newMessage.className = "my-bubble"	
 	chat.scrollTop = chat.scrollHeight
 	document.getElementById("sms-text").value = ""
-	$.get("http://brettselby.xyz/cgi-bin/brett-markov.py", {s: input}, function(data) {
+	$.get("http://brettselby.xyz/cgi-bin/brett-bot.py", {s: input}, function(data) {
 		container = document.createElement("div")
 		container.className = "message-container"
 		newReply = document.createElement("p")
@@ -23,10 +23,6 @@ function getReply() {
 		chat.appendChild(container)
 		chat.scrollTop = chat.scrollHeight
 	})
-}
-
-function chatBubble(text) {
-	return "<p id=\"reply\" class=\"bubble\">" + text + "</p>"
 }
 
 $(function(){
