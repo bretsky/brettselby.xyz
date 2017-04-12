@@ -11,17 +11,21 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/brett.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="https://use.fontawesome.com/c02d577db7.js"></script>
     </head>
     <body>
         <div id="chat" class="chat">
         </div>
-        <div class="sms-container">
-            <div class="fulltitlebar" style="width=100%;z-index:3"></div>
-            <div class="send-container">
-                <input id="sms-text" placeholder="Send Message" type="text" class="sms-input" style="font-family:aleo"></input>
-                <button id="send-button" class="sms-send"><img src="send-button.png" onclick="getReply()"></img></button> 
-            </div>
+        <div class="send-container">
+            <input id="sms-text" placeholder="Send Message" type="text" class="sms-input" style="font-family:aleo"></input>
+            <button id="send-button" class="sms-button" onclick="getReply()">
+                <span class="fa-stack">
+                    <i class="fa fa-circle fa-stack-2x" style="color:#4B7084; left: 1px"></i>
+                    <i class="fa fa-paper-plane fa-stack-1x" style="color:#D1F3F9"></i>
+                </span>
+            </button> 
         </div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="js/mobile-chrome-vh-fix.js"></script>
         <script src="js/brett.js"></script>
     </body>
