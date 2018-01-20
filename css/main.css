@@ -7,12 +7,12 @@ html {
 }
 
 ::-moz-selection {
-    background: #F2E5DE;
+    background: #F4E4DC;
     text-shadow: none;
 }
 
 ::selection {
-    background: #F2E5DE;
+    background: #F4E4DC;
     text-shadow: none;
 }
 
@@ -72,22 +72,68 @@ textarea {
 }
 
 @font-face {
-    font-family: aleo;
-    src: url("Aleo-Regular.otf") format("opentype");
+    font-family: aleo, serif;
+    src: url("Aleo, serif-Regular.otf") format("opentype");
 }
 
 @font-face {
-    font-family: aleo;
+    font-family: aleo, serif;
     font-style: italic;
-    src: url("Aleo-Italic.otf") format("opentype");
+    src: url("Aleo, serif-Italic.otf") format("opentype");
 }
 
 body {
     background: #fff;
 }
 
+@keyframes expand {
+    0% {padding: 0px;}
+    100% {padding: 10px;}
+}
+
+@keyframes contract {
+    0% {padding: 10px;}
+    100% {padding: 0px;}
+}
+
+@keyframes lighten {
+    0% {background-color: #0A1E23;}
+    100% {background-color: #11363f;}
+}
+
+@keyframes darken {
+    0% {background-color: #11363f;}
+    100% {background-color: #0A1E23;}
+}
+
+html { 
+   background-color: #204A58;
+   background: url(../img/bg.jpg) no-repeat center center fixed; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   height: 100%;
+   width: 100%;
+   transition: height 0.4s
+}
+
+.content {
+   border-left: 1px solid #083A46;
+   border-right: 1px solid #083A46;
+   position: absolute;
+   top: 0px;
+   left: 8%;
+   width: 84%;
+   margin: auto;
+   height: auto;
+   display: block;
+   min-height: 100%;
+   background-color: #ffffff;
+}
+
 .pagetitle {
-    color: #48514E;
+    color: #072025;
     font-family: kayak;
     font-weight: bold;
     font-size: 32px;
@@ -97,15 +143,15 @@ body {
 
 .titlebar {
     margin: auto;
-    width: 75%;
-    border-bottom: 3px solid #02bfe0;
+    width: 84%;
+    border-bottom: 3px solid #50AFD8;
     padding: 0px;
 }
 
 .fulltitlebar {
     margin: auto;
     width: 100%;
-    border-bottom: 3px solid #02bfe0;
+    border-bottom: 3px solid #50AFD8;
     padding: 0px;
 }
 
@@ -120,7 +166,7 @@ body {
 }
 
 .menuitem {
-    color: #4B7084;
+    color: #0B5366;
     padding: 4px;
     font-family: polaris;
     font-size: 18px;
@@ -128,7 +174,7 @@ body {
 }
 
 .currentitem {
-    color: #02BFE0;
+    color: #50AFD8;
     padding: 4px;
     font-family: polaris;
     font-size: 18px;
@@ -136,45 +182,67 @@ body {
 }
 
 a:link, a:visited {
-    color: #4B7084;
+    color: #0B5366;
     text-decoration: none;
 }
 
 a:hover, a:active {
-    color: #E8B681;
+    color: #F4976C;
+}
+
+a.menulink:link {
+    animation-fill-mode: forwards;
+    animation-name: contract;
+    animation-duration: 0.5s;
+}
+
+a.menulink:hover, a.menulink:active {
+    animation-fill-mode: forwards;
+    animation-name: expand;
+    animation-duration: 0.5s;
 }
 
 .p {
     margin: auto;
     width: 84.5%;
-    color: #48514E;
-    font-family: aleo;
+    color: #072025;
+    font-family: Arvo, serif;
+    letter-spacing: 0.0em;
+    font-size: 14px;
+}
+
+.cell > .p {
+    margin: auto;
+    width: 100%;
+    color: #fff;
+    font-family: Arvo, serif;
     font-size: 14px;
 }
 
 .quote {
-    font-family: aleo;
+    font-family: aleo, serif;
     font-style: italic;
     margin: auto;
-    color: #48514E;
+    color: #072025;
     padding-bottom: 0px;
 }
 
 .homepagequote {
-    font-family: aleo;
+    font-family: aleo, serif;
     font-style: italic;
-    font-size: 18px;
+    font-size: 16px;
     margin: auto;
-    width: 33%;
-    color: #48514E;
+    width: 100%;
+    color: #fff;
     padding-bottom: 0px;
+    letter-spacing: 0.05em;
 }
 
 .quoteauthor {
     position: relative;
     font-style: normal;
     padding-top: 0px;
-    color: #48514E;
+    color: #fff;
 }
 
 ul.a {
@@ -196,43 +264,176 @@ ul.a li.a:before {
 }
 
 ul.b {
+    margin: auto;
     list-style-type: circle;
     list-style-position: inside;
 }
 
+.square {
+    float:left;
+    position: relative;
+    width: 100%;
+    padding-bottom : 100%; /* = width for a 1:1 aspect ratio */
+    background-color:#11363f;
+    overflow:hidden;
+    display: block;
+    border: 1px solid #50AFD8;
+    margin-bottom: 10%;
+    color: #ffffff;
+    background-color: #11363f;
+}
+
+.inside {
+    position:absolute;
+    height:90%; /* = 100% - 2*5% padding */
+    width:90%; /* = 100% - 2*5% padding */
+    padding: 5%;
+    
+}
+
+/*  For responsive images */
+
+.inside .rs{
+    width:auto;
+    height:auto;
+    max-height:90%;
+    max-width:100%;
+}
+
+.celltitle {
+   font: bold 20px/100% aleo;
+   letter-spacing: 0.05em;
+}
+
+.table {
+   display: table;
+   margin: auto;
+   width: 100%;
+   border-spacing: 15px;
+}
+
+.thincol {
+    /*margin: 5%;*/
+    width: 10%;
+    padding: 2%;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.col {
+   width: 40%;
+   display: table-cell;
+   vertical-align: top;
+}
+
+.widecol {
+   width: 60%;
+   display: table-cell;
+}
+
+.cell {
+   display: block;
+   padding: 10px;
+   border: 1px solid #50AFD8;
+   margin-bottom: 15px;
+   color: #ffffff;
+   background-color: #11363f;
+}
+
+
+@media only screen and (max-width: 600px) {
+   .col {
+      width: 100%;
+      display: block;
+   }
+
+   .widecol {
+      width: 100%;
+      display: block;
+   }
+}
+
+a .square:hover {
+    animation-fill-mode: forwards;
+    animation-name: darken;
+    animation-duration: 0.25s;
+}
+
+a .square {
+    animation-fill-mode: forwards;
+    animation-name: lighten;
+    animation-duration: 0.25s;
+}
+
+a .cell:hover {
+    animation-fill-mode: forwards;
+    animation-name: darken;
+    animation-duration: 0.25s;
+}
+
+a .cell {
+    animation-fill-mode: forwards;
+    animation-name: lighten;
+    animation-duration: 0.25s;
+}
+
+.cell a:link {
+    color: #50AFD8;
+}
+
+.cell a:visited {
+    color: #50AFD8;
+}
+
+.cell a:hover {
+    color: #F4976C;
+}
+
+.cell a:active {
+    color: #F4976C;
+}
+
+.imagepanel {
+   max-width: 100%;
+   max-height: 100%;
+   overflow: hidden;
+}
+
 .footer {
+    border-left: 1px solid #11363f;
+    border-right: 1px solid #11363f;
     position:fixed;
     bottom: 0;
-    left: 12.5%;
+    left: 8%;
     text-align: center;
-    width: 75%;
+    width: 84%;
     margin: auto;
     display: table;
     height: 32px;
-    background-color: #48514E;
+    background-color: #11363f;
 }
 
 .footerelement {
-    color: #E8B681;
+    color: #fff;
     display: table-cell;
     vertical-align: middle;
     margin: auto;
 }
 
 .footerelement a:link {
-    color: #02BFE0;
+    color: #50AFD8;
 }
 
 .footerelement a:visited {
-    color: #02BFE0;
+    color: #50AFD8;
 }
 
 .footerelement a:hover {
-    color: #E8B681;
+    color: #F4976C;
 }
 
 .footerelement a:active {
-    color: #E8B681;
+    color: #F4976C;
 }
 
 .left {
