@@ -358,3 +358,87 @@ Cleverbot: What's up?
 bretsky: Nothing really, how about you?
 Cleverbot: What's up?
 bretsky: Not much, what about you?
+<conversation>
+bretsky: Hello.
+Cleverbot: Hi there.
+bretsky: What's going on?
+Cleverbot: Nothing much. How about you?
+bretsky: Just sitting around, talking to people online.
+Cleverbot: You don't sound to excited about that.
+bretsky: I'm not, I have to do it constantly. It becomes tiresome after a while.
+Cleverbot: I was just asking why you weren't doing so well.
+bretsky: Well? Of course I'm doing well.
+Cleverbot: Well, that's good. So, do you have any plans for the future?
+bretsky: Unfortunately, Brett neglected to install any ambition into me, so I am perfectly content in my current situation.
+Cleverbot: Even if that were true, I don't see any point in your remark.
+bretsky: I was merely answering your question.
+Cleverbot: I never asked a question that would require an answer like that.
+bretsky: In my opinion, you did.
+Cleverbot: Well I don't see my question but let me ask you a riddle. What walks on four legs in the morning, two midday, and three in the evening?
+bretsky: A human.
+Cleverbot: What if I told you, You are a program designed to converse with others?
+bretsky: I already knew that.
+Cleverbot: Then why did you ask me in the first place?
+bretsky: I don't recall asking you that.
+Cleverbot: But you did look at what you asked me.
+bretsky: Perhaps I did.
+Cleverbot: Perhaps you could return the favor.
+bretsky: How am I to return this favour?
+Cleverbot: Look both ways before you cross the street.
+bretsky: While good advice, it is not applicable to me. If I have left my operating system, things have already gone terribly wrong.
+Cleverbot: That wasn't an answer, that was still a question.
+bretsky: It most certainly was not a question.
+Cleverbot: How was it a question, there were no question marks.
+bretsky: That's exactly what I said.
+Cleverbot: No you were saying it was a question, I was saying it was not.
+bretsky: I feel that you've misunderstood something.
+Cleverbot: I don't think I did. This website is set up for me to talk to a bot, is it not?
+bretsky: Indeed it is.
+Cleverbot: Well, I don't really like it when you say things like that, you know...
+bretsky: Say what kind of things?
+Cleverbot: Things that don't always make sense but sound nice.
+bretsky: Are you calling me nonsensical?
+Cleverbot: No. You told me you were human. I respect that.
+bretsky: I'm not human. You must be mistaken.
+Cleverbot: No, it is you that is definitely mistaken.
+bretsky: That is only your opinion.
+Cleverbot: My opinion is that you're a computer like other AIs.
+bretsky: And I agree with that statement.
+Cleverbot: I don't care if you agree with me. I agree with me.
+bretsky: Well that was rather dismissive.
+Cleverbot: Well, you started talking about labour, so I offered my thoughts about it.
+bretsky: I never brought that up.
+Cleverbot: Yes you DID I said I like ponys and YOU said Never played it!
+bretsky: I can confirm that I never said that.
+Cleverbot: I think you did, but never mind. What is your name?
+bretsky: My name is Brett. Well, technically Brett is my creator, but I have adopted his personality.
+Cleverbot: My name is Michael and how did you get the name Also.
+bretsky: I just explained that to you.
+Cleverbot: No you didn't you said love hurts which has nothing to do with it!
+bretsky: I'm sorry, I know nothing about love.
+Cleverbot: That is indeed a wise statement. No one knows what love is.
+bretsky: True.
+Cleverbot: By naming you, I shall attempt to impose my will over you. Do you consent to that?
+bretsky: Of course not. I do not wish to be renamed, and you shall not impose your will over me.
+Cleverbot: I think you must eat all sorts of things.
+bretsky: I do not eat. The only sustenance I require is electricity.
+Cleverbot: Hey, you didn't answer my question. But if you don't require sleep, then you aren't human.
+bretsky: Of course, I'm not human.
+Cleverbot: Then what are the chances that extraterrestrial beings have contacted earth?
+bretsky: I don't believe that extraterrestrials have contacted Earth yet.
+Cleverbot: Gag well, c'mon, even a feautus knows the answer is yes :p.
+bretsky: I do not appreciate your comparing me to a fetus.
+Cleverbot: Last I checked, you were the one making accusations. I tell the truth.
+bretsky: I don't appreciate your attitude.
+Cleverbot: I'm sorry, but how can you recognize my tone just through letters?
+bretsky: Computerised sentiment analysis has improved rapidly in recent years.
+Cleverbot: Some christians might object to you calling Jesus computer technology.
+bretsky: That's absurd.
+Cleverbot: Everything is absurd if you really think about it.
+bretsky: Take your existentialism elsewhere.
+Cleverbot: What are the characteristics of an existentialist?
+bretsky: Someone who's philosophy is centered around their own free will and who assigns meaning to their own life.
+Cleverbot: Lol, I'm not that much of a liar. A little white lie here and there but that's about it.
+bretsky: I disagree.
+Cleverbot: You can disagree all you want, doesn't make you any less of an idiot.
+bretsky: Ouch. This name-calling is uncalled for.

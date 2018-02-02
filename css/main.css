@@ -340,17 +340,35 @@ ul.b {
    background-color: #11363f;
 }
 
+.squeeze {
+    width: 75%;
+    margin: auto;
+}
 
 @media only screen and (max-width: 600px) {
-   .col {
-      width: 100%;
-      display: block;
-   }
+    .col {
+        width: 100%;
+        display: block;
+    }
 
-   .widecol {
-      width: 100%;
-      display: block;
-   }
+    .widecol {
+        width: 100%;
+        display: block;
+    }
+
+}
+
+@media only screen and (max-width: 750px) {
+    .squeeze {
+        width: 90%;
+        margin: auto;
+    }
+
+   .thincol {
+        width: 90%;
+        margin: auto;
+        display: block;
+    }
 }
 
 a .square:hover {
