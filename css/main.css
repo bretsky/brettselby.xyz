@@ -115,7 +115,9 @@ html {
    background-size: cover;
    height: 100%;
    width: 100%;
-   transition: height 0.4s
+   transition: height 0.4s;
+   transition: width 0.4s;
+   overflow-y: auto;
 }
 
 .content {
@@ -314,8 +316,10 @@ ul.b {
 
 .thincol {
     /*margin: 5%;*/
-    width: 10%;
+    width: 9%;
     padding: 2%;
+    padding-top: 0%;
+    padding-bottom: 0%;
     display: table-cell;
     vertical-align: top;
 }
@@ -359,6 +363,11 @@ ul.b {
 }
 
 @media only screen and (max-width: 750px) {
+
+    html {
+        overflow-y: scroll;
+    }
+
     .squeeze {
         width: 90%;
         margin: auto;
