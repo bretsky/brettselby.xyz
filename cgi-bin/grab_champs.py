@@ -6,6 +6,11 @@ import urllib2
 from HTMLParser import HTMLParser
 from htmlentitydefs import name2codepoint
 
+cgitb.enable()
+
+print "Content-Type: text/plain;charset=utf-8\n"
+
+
 class LeagueChampParser(HTMLParser):
     def __init__(self):
         HTMLParser.__init__(self)
@@ -41,7 +46,8 @@ req = urllib2.Request('https://na.leagueoflegends.com/en/game-info/champions/')
 req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36')
 resp = urllib2.urlopen(req)
 content = resp.read()
-parser.feed(open("test.html", "r").read())
+print content
+parser.feed(content)
 
 img_names = []
 for name in parser.urlnames:
@@ -52,7 +58,7 @@ data_dict = {}
 for i in range(len(parser.urlnames)):
     data_dict[parser.urlnames[i]] = [parser.names[i], img_names[i]]
 
-print(data_dict)
+print(len(data_dict.keys()))
 
 with open('champs.json', 'w') as outfile:
     json.dump(data_dict, outfile)
