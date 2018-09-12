@@ -8,7 +8,8 @@ def random_lanes():
     return {"lane1": lanes[0], "lane2": lanes[1]}
 
 def random_champ():
-    return {"champ": random.choice(list(json.load(open("champs.json", "r")).keys()))}
+    champs = json.load(open("champs.json", "r"))
+    return {"champ": champs[random.choice(list(champs.keys()))][0]}
 
 def random_runepage():
     runes = json.load(open("runes.json", "r"))
@@ -29,6 +30,7 @@ lanes = random_lanes()
 champ = random_champ()
 runes = random_runepage()
 
+print()
 print(lanes["lane1"] + ', ' + lanes["lane2"])
 print()
 print(champ["champ"])
