@@ -1,0 +1,8 @@
+{
+	"paths": ["Precision", "Domination", "Sorcery", "Resolve", "Inspiration"],
+	"keystone": {
+		"Precision": ["Press the Attack", "Lethal Tempo", "Fleet Footwork", "Conqueror"],
+		"Domination": ["Electrocute", "Predator", "Dark Harvest", "Hail of Blades"],
+		"Sorcery": ["Summon Aery", "A"]
+	}
+}
