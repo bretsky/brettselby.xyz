@@ -9,7 +9,7 @@ def random_lanes():
 
 def random_champ():
     champs = json.load(open("champs.json", "r"))
-    return {"champ": champs[random.choice(list(champs.keys()))][0]}
+    return {"champ": champs[random.choice(list(champs.keys()))]["name"]}
 
 def random_runepage():
     runes = json.load(open("runes.json", "r"))
