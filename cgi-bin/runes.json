@@ -3,6 +3,29 @@
 	"keystone": {
 		"Precision": ["Press the Attack", "Lethal Tempo", "Fleet Footwork", "Conqueror"],
 		"Domination": ["Electrocute", "Predator", "Dark Harvest", "Hail of Blades"],
-		"Sorcery": ["Summon Aery", "A"]
+		"Sorcery": ["Summon Aery", "Arcane Comet", "Phase Rush"],
+		"Resolve": ["Grasp of the Undying", "Aftershock", "Guardian"],
+		"Inspiration": ["Glacial Augment", "Kleptomancy", "Unsealed Spellbook"]
+	},
+	"slot1": {
+		"Precision": ["Overheal", "Triumph", "Presence of Mind"],
+		"Domination": ["Cheap Shot", "Taste of Blood", "Sudden Impact"],
+		"Sorcery": ["Nullifying Orb", "Manaflow Band", "Nimbus Cloak"],
+		"Resolve": ["Demolish", "Font of Life", "Bone Plating"],
+		"Inspiration": ["Hextech Flashtraption", "Magical Footwear", "Perfect Timing"]
+	},
+	"slot2": {
+		"Precision": ["Legend: Alacrity", "Legend: Tenacity", "Legend: Bloodline"],
+		"Domination": ["Zombie Ward", "Ghost Poro", "Eyeball Collection"],
+		"Sorcery": ["Transcendence", "Celerity", "Absolute Focus"],
+		"Resolve": ["Conditioning", "Second Wind", "Chrysalis"],
+		"Inspiration": ["Future's Market", "Minion Dematerializer", "Biscuit Delivery"]
+	},
+	"slot3": {
+		"Precision": ["Coup de Grace", "Cut Down", "Last Stand"],
+		"Domination": ["Ravenous Hunter", "Ingenious Hunter", "Relentless Hunter", "Ultimate Hunter"],
+		"Sorcery": ["Scorch", "Waterwalking", "Gathering Storm"],
+		"Resolve": ["Overgrowth", "Revitalize", "Unflinching"],
+		"Inspiration": ["Cosmic Insight", "Approach Velocity", "Time Warp Tonic"]
 	}
 }
